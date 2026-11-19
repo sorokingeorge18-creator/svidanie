@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Свидание назначено!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Manrope:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body data-page="done">
+<main class="stage">
+  <div class="sheet">
+    <span class="sticker sticker--a" aria-hidden="true">печать поставлена</span>
+    <section class="step" aria-labelledby="doneTitle">
+      <ol class="progress" aria-label="Шаг 5 из 5">
+        <li class="is-done"></li><li class="is-done"></li><li class="is-done"></li><li class="is-done"></li><li class="is-current" aria-current="step"></li>
+      </ol>
+      <span class="eyebrow">Бронь подтверждена</span>
+      <h2 id="doneTitle">Свидание назначено! 🎉</h2>
+      <p class="lead">Сделай скриншот и отправь мне. Это теперь юридический документ.</p>
+      <dl class="ticket">
+        <div class="ticket-row"><dt>Билет</dt><dd class="ticket-no" id="tNo">№ 000001</dd></div>
+        <div class="ticket-row"><dt>Что</dt><dd id="tWhat">—</dd></div>
+        <div class="ticket-row"><dt>Когда</dt><dd id="tWhen">—</dd></div>
+        <div class="ticket-row"><dt>Дресс-код</dt><dd>Красивая (уже выполнено)</dd></div>
+        <div class="ticket-row"><dt>Попыток отказа</dt><dd id="tTries">0</dd></div>
+        <div class="ticket-row"><dt>Попыток перенести</dt><dd id="tDodges">0</dd></div>
+        <div class="ticket-row"><dt>От кого</dt><dd id="tFrom">Твой бармен</dd></div>
+      </dl>
+      <div class="actions">
+        <button class="btn btn--yes" id="copyBtn" type="button">Скопировать мне ответ</button>
+        <button class="btn btn--ghost" id="againBtn" type="button">Выбрать заново</button>
+      </div>
+      <p class="copied" id="copied" aria-live="polite"></p>
+    </section>
+  </div>
+</main>
+</body>
+</html>

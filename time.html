@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Во сколько?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Manrope:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="prefetch" href="done.html">
+<script src="assets/app.js" defer></script>
+</head>
+<body data-page="time">
+<main class="stage">
+  <div class="sheet">
+    <span class="sticker sticker--a" aria-hidden="true">ночь наша</span>
+    <section class="step" aria-labelledby="timeTitle">
+      <ol class="progress" aria-label="Шаг 4 из 5">
+        <li class="is-done"></li><li class="is-done"></li><li class="is-done"></li><li class="is-current" aria-current="step"></li><li></li>
+      </ol>
+      <span class="eyebrow">Финишная прямая</span>
+      <h2 id="timeTitle">Сегодня, значит сегодня 😎<br>Во сколько за тобой зайти?</h2>
+      <div class="options options--time" id="timeOptions">
+        <button class="option" type="button" data-time="21:00">
+          <span class="clock">21:00</span>
+          <span class="joke">Только стемнело. Всё по-взрослому.</span>
+        </button>
+        <button class="option" type="button" data-time="21:30">
+          <span class="clock">21:30</span>
+          <span class="joke">Успею побриться и надушиться.</span>
+        </button>
+        <button class="option" type="button" data-time="22:00">
+          <span class="clock">22:00</span>
+          <span class="joke">Город наш, фонари включены.</span>
+        </button>
+        <button class="option" type="button" data-time="22:30">
+          <span class="clock">22:30</span>
+          <span class="joke">Самое время для романтики.</span>
+        </button>
+        <button class="option" type="button" data-time="23:00">
+          <span class="clock">23:00</span>
+          <span class="joke">Совы вылетают на охоту 🦉</span>
+        </button>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

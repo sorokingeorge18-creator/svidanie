@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Когда идём?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Manrope:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="prefetch" href="time.html">
+<script src="assets/app.js" defer></script>
+</head>
+<body data-page="when">
+<main class="stage">
+  <div class="sheet">
+    <span class="sticker sticker--b" aria-hidden="true">переносы не принимаются</span>
+    <section class="step" aria-labelledby="whenTitle">
+      <ol class="progress" aria-label="Шаг 3 из 5">
+        <li class="is-done"></li><li class="is-done"></li><li class="is-current" aria-current="step"></li><li></li><li></li>
+      </ol>
+      <span class="eyebrow">Выбираем день</span>
+      <h2 id="whenTitle"><span id="planEcho">Отличный выбор.</span><br>Когда идём?</h2>
+      <div class="options options--compact" id="whenOptions">
+        <button class="option" type="button" data-day="today">
+          <span class="emoji" aria-hidden="true">⚡</span>
+          <span class="name">Сегодня</span>
+          <span class="joke">Я уже стою у двери. Шучу. Почти.</span>
+        </button>
+        <button class="option" type="button" data-day="tomorrow">
+          <span class="emoji" aria-hidden="true">🌅</span>
+          <span class="name">Завтра</span>
+          <span class="joke">Успею погладить рубашку.</span>
+        </button>
+        <button class="option" type="button" data-day="weekend">
+          <span class="emoji" aria-hidden="true">🗓️</span>
+          <span class="name">На выходных</span>
+          <span class="joke">Ждать долго, но я сильный.</span>
+        </button>
+        <button class="option" type="button" data-day="later">
+          <span class="emoji" aria-hidden="true">👑</span>
+          <span class="name">Когда скажешь</span>
+          <span class="joke">Ты главная, я просто водитель.</span>
+        </button>
+      </div>
+      <p class="taunt" id="whenTaunt" aria-live="polite"></p>
+    </section>
+  </div>
+</main>
+</body>
+</html>

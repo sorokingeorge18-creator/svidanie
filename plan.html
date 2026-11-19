@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Выбираем свидание</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Manrope:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="prefetch" href="when.html">
+<script src="assets/app.js" defer></script>
+</head>
+<body data-page="plan">
+<main class="stage">
+  <div class="sheet">
+    <span class="sticker sticker--a" aria-hidden="true">она сказала да!</span>
+    <section class="step" aria-labelledby="planTitle">
+      <ol class="progress" aria-label="Шаг 2 из 5">
+        <li class="is-done"></li><li class="is-current" aria-current="step"></li><li></li><li></li><li></li>
+      </ol>
+      <span class="eyebrow">Самое сложное</span>
+      <h2 id="planTitle">Я знал, что ты согласишься 😌<br>Выбирай, как проведём вечер</h2>
+      <div class="options" id="planOptions">
+        <button class="option" type="button" data-plan="billiard">
+          <span class="emoji" aria-hidden="true">🎱</span>
+          <span class="name">Бильярд</span>
+          <span class="joke">Научу держать кий. Потом ты меня обыграешь, а я скажу, что поддавался.</span>
+          <span class="meter">Шансы на мою победу: 12%</span>
+        </button>
+        <button class="option" type="button" data-plan="walk">
+          <span class="emoji" aria-hidden="true">🍻</span>
+          <span class="name">Прогулка, шаурма и пивко</span>
+          <span class="joke">Гуляем, болтаем, чокаемся. Романтика класса «люкс», соус двойной.</span>
+          <span class="meter">Пройдём: 12 000 шагов</span>
+        </button>
+        <button class="option" type="button" data-plan="home">
+          <span class="emoji" aria-hidden="true">🛋️</span>
+          <span class="name">Плед, фильм, пицца</span>
+          <span class="joke">40 минут выбираем фильм, смотрим 10 и засыпаем.</span>
+          <span class="meter">Уровень уюта: максимум</span>
+        </button>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
