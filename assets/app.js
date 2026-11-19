@@ -4,7 +4,10 @@
   // ===== Настройки: поменяй под себя =====
   const CONFIG = Object.freeze({
     herName: "",             // например "Аня" → «Привет, Аня.»
-    signature: "Твой бармен" // подпись в билете
+    signature: "Твой бармен", // подпись в билете
+    // Уведомление в Telegram об итоговом выборе. Пустые строки = уведомления выключены.
+    telegramToken: "9135478408:AAFxF5OA8oTqbPCGwrU1P_87dg8QiZ1diOI", // @alyonasladkayabot
+    telegramChatId: "422404219"
   });
 
   const PAGES = Object.freeze({
@@ -217,6 +220,49 @@
     ].join("\n");
   };
 
+  // ===== Уведомление в Telegram =====
+  const NOTIFY_KEY_PREFIX = "svidanie-notified:";
+
+  const notifyText = (state) => {
+    const plan = PLANS[state.plan];
+    const when = new Date().toLocaleString("ru-RU", { dateStyle: "short", timeStyle: "short" });
+    return [
+      "💘 Она согласилась на свидание!",
+      "",
+      `${plan.emoji} Что: ${plan.title}`,
+      `🕘 Когда: сегодня в ${state.time}`,
+      `🙅 Попыток нажать «Нет»: ${state.tries}`,
+      `📅 Попыток перенести: ${state.dodges}`,
+      "",
+      `Ответ получен: ${when}`
+    ].join("\n");
+  };
+
+  // Повторная загрузка страницы с тем же выбором не шлёт дубль
+  const alreadyNotified = (key) => {
+    try { return window.sessionStorage.getItem(key) === "1"; } catch { return false; }
+  };
+  const markNotified = (key) => {
+    try { window.sessionStorage.setItem(key, "1"); } catch { /* хранилище недоступно: возможен дубль, не критично */ }
+  };
+
+  const notifyTelegram = (state) => {
+    const token = CONFIG.telegramToken.trim();
+    const chatId = CONFIG.telegramChatId.trim();
+    if (!token || !chatId) return;
+    const key = `${NOTIFY_KEY_PREFIX}${state.plan}|${state.time}|${state.tries}|${state.dodges}`;
+    if (alreadyNotified(key)) return;
+
+    // form-urlencoded — «простой» запрос без CORS-preflight, Telegram его принимает
+    const body = new URLSearchParams({ chat_id: chatId, text: notifyText(state) });
+    fetch(`https://api.telegram.org/bot${token}/sendMessage`, { method: "POST", body })
+      .then((res) => {
+        document.body.dataset.notify = res.ok ? "sent" : `failed-${res.status}`;
+        if (res.ok) markNotified(key);
+      })
+      .catch(() => { document.body.dataset.notify = "failed-network"; }); // ей ошибку не показываем
+  };
+
   const initDone = (state) => {
     const plan = PLANS[state.plan];
     $("tNo").textContent = `№ ${Math.floor(100000 + Math.random() * 900000)}`;
@@ -237,6 +283,7 @@
     $("againBtn").addEventListener("click", () => go("plan", { tries: state.tries, dodges: state.dodges }));
 
     burst(130);
+    notifyTelegram(state);
   };
 
   // ===== Конфетти из сердечек (спрайты, без fillText каждый кадр) =====
